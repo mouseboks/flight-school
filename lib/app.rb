@@ -8,7 +8,7 @@ class FlightSchool < Sinatra::Base
     erb :index, locals: { airports: ["JFK", "SFO", "OHR", "FWA", "OAK", "SEA", "LAX"] }
   end
 
-  get "/airports/:code" d
+  get "/airports/:code" do
     begin
       airport_status = Radar.status_for(params[:code])
       erb :airport, locals: { status: airport_status }
